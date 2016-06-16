@@ -1,8 +1,8 @@
 # the-real-animate.sass
-**TL;DR** Unlike the rest of the [animate.css](https://github.com/daneden/animate.css) ports for SASS, this one isn't shit.
+**TL;DR** The [animate.css](https://github.com/daneden/animate.css) port to SASS you're looking for.
 
 - Keyframes are rendered on actual use, no extra imports, no duplicates
-- No useless classes, animations are directly attached to styled element
+- No classes, animations are directly attached to styled element
 - Nested SASS maps as data source (JSON-like)
 
 ```Sass
