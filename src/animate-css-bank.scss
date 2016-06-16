@@ -278,6 +278,49 @@ $__animationBank: (
   fadeOutUpBig: (
     0%: (opacity: 1),
     100%: (opacity: 0, transform: translate3d(0, -2000px, 0))
+  ),
+
+  // Flippers
+
+  flip: (
+    default: (backface-visibility: visible),
+    0%: (transform: perspective(400px) rotate3d(0, 1, 0, -360deg), animation-timing-function: ease-out),
+    40%: (transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg), animation-timing-function: ease-out),
+    50%: (transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg), animation-timing-function: ease-in),
+    80%: (transform: perspective(400px) scale3d(.95, .95, .95), animation-timing-function: ease-in),
+    100%: (transform: perspective(400px), animation-timing-function: ease-in)
+  ),
+
+  flipInX: (
+    default: (backface-visibility: visible !important),
+    0%: (transform: perspective(400px) rotate3d(1, 0, 0, 90deg), animation-timing-function: ease-in, opacity: 0),
+    40%: (transform: perspective(400px) rotate3d(1, 0, 0, -20deg), animation-timing-function: ease-in),
+    60%: (transform: perspective(400px) rotate3d(1, 0, 0, 10deg), opacity: 1),
+    80%: (transform: perspective(400px) rotate3d(1, 0, 0, -5deg)),
+    100%: (transform: perspective(400px))
+  ),
+
+  flipInY: (
+    default: (backface-visibility: visible !important),
+    0%: (transform: perspective(400px) rotate3d(0, 1, 0, 90deg), animation-timing-function: ease-in, opacity: 0),
+    40%: (transform: perspective(400px) rotate3d(0, 1, 0, -20deg), animation-timing-function: ease-in),
+    60%: (transform: perspective(400px) rotate3d(0, 1, 0, 10deg), opacity: 1),
+    80%: (transform: perspective(400px) rotate3d(0, 1, 0, -5deg)),
+    100%: (transform: perspective(400px))
+  ),
+
+  flipOutX: (
+    default: (backface-visibility: visible !important),
+    0%: (transform: perspective(400px)),
+    30%: (transform: perspective(400px) rotate3d(1, 0, 0, -20deg), opacity: 1),
+    100%: (transform: perspective(400px) rotate3d(1, 0, 0, 90deg), opacity: 0)
+  ),
+
+  flipOutY: (
+    default: (backface-visibility: visible !important),
+    0%: (transform: perspective(400px)),
+    30%: (transform: perspective(400px) rotate3d(0, 1, 0, -15deg), opacity: 1),
+    100%: (transform: perspective(400px) rotate3d(0, 1, 0, 90deg), opacity: 0)
   )
 
 );
