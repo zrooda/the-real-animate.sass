@@ -6,7 +6,7 @@ $__defaultEasing: linear !default
 $__usedKeyframes: () !default
 
 // Mixin
-=animate($name, $duration: $__defaultDuration, $easing: $__defaultEasing)
+=animate($name, $duration: $__defaultDuration)
   $extraProps: false
   // Check bank
   @if map-has-key($__animationBank, $name)
@@ -26,7 +26,6 @@ $__usedKeyframes: () !default
     // Set animation properties on element
     animation-name: $name
     animation-duration: $duration
-    animation-timing-function: $easing
 
     // Add extra animation defaults
     @if $extraProps
