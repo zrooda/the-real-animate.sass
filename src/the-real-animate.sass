@@ -1,12 +1,14 @@
 @import 'animate-css-bank.scss'
 
 // Config
+$__animateCaching: true !default
 $__animateDuration: 1000ms !default
 $__animateUsedKeyframes: () !default
 
 // Mixin
-=animate($name, $duration: $__animateDuration)
+=animate($name, $duration: $__animateDuration, $cache: $__animateCaching)
   $extraProps: false
+  $cachedProps: ()
   // Check bank
   @if map-has-key($__animationBank, $name)
 
@@ -21,6 +23,9 @@ $__animateUsedKeyframes: () !default
             #{$stop}
               @each $prop, $value in $styles
                 #{$prop}: $value
+                // Get props to accelerate
+                @if $cache and not index($cachedProps, $prop)
+                  $cachedProps: append($cachedProps, $prop, comma)
           @else
             $extraProps: $styles
 
@@ -34,5 +39,11 @@ $__animateUsedKeyframes: () !default
       @each $prop, $value in $extraProps
         #{$prop}: $value
 
+    // Hardware acceleration
+    will-change: if(length($cachedProps) > 0, $cachedProps, null)
+
   @else
     @error '\'#{$name}\' not found in animation bank.'
+
+div
+  +animate(bounceIn)
