@@ -6,7 +6,8 @@ $__defaultEasing: linear !default
 $__usedKeyframes: () !default
 
 // Mixin
-=animate($name, $duration: $__defaultDuration, $easing: $__defaultEasing, $delay: 0)
+=animate($name, $duration: $__defaultDuration, $easing: $__defaultEasing)
+  $extraProps: false
   // Check bank
   @if map-has-key($__animationBank, $name)
 
@@ -15,15 +16,22 @@ $__usedKeyframes: () !default
       $__usedKeyframes: append($__usedKeyframes, $name) !global
       @keyframes #{$name}
         @each $stop, $styles in map-get($__animationBank, $name)
-          #{$stop}
-            @each $prop, $value in $styles
-              #{$prop}: if(type-of($value) == string, unquote($value), $value)
+          @if $stop != default
+            #{$stop}
+              @each $prop, $value in $styles
+                #{$prop}: if(type-of($value) == string, unquote($value), $value)
+          @else
+            $extraProps: $styles
 
-    // Set properties on element
+    // Set animation properties on element
     animation-name: $name
     animation-duration: $duration
     animation-timing-function: $easing
-    animation-delay: $delay
+
+    // Add extra animation defaults
+    @if $extraProps
+      @each $prop, $value in $extraProps
+        #{$prop}: $value
 
   @else
     @error '\'#{$name}\' not found in animation bank.'
