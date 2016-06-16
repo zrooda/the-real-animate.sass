@@ -6,6 +6,8 @@
 - Nested SASS maps as data source (JSON-like)
 
 ```Sass
+@import 'src/the-real-animate'
+
 div
-  +animate(fadeIn, 500ms)
+  +animate(fadeIn, 500ms) // default 1s
 ```
