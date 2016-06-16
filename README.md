@@ -25,15 +25,13 @@ my-widget.coming-in-hot {
   animation-fill-mode: both;
   will-change: opacity, transform; }
 
-@keyframes bounceInLeft {
-  ... }
+@keyframes bounceInLeft { ... }
 
 my-widget.going-bye-bye {
   animation-name: fadeOut;
   animation-duration: 500ms;
   animation-fill-mode: both; }
 
-@keyframes fadeOut {
-  ... }
+@keyframes fadeOut { ... }
 
 ```
