@@ -1,19 +1,20 @@
-@import 'animation-bank.scss'
+@import 'animate-css-bank.scss'
 
 // Config
-$__defaultDuration: 500ms !default
-$__defaultEasing: linear !default
-$__usedKeyframes: () !default
+$__animateDuration: 1000ms !default
+$__animateUsedKeyframes: () !default
 
 // Mixin
-=animate($name, $duration: $__defaultDuration)
+=animate($name, $duration: $__animateDuration)
   $extraProps: false
   // Check bank
   @if map-has-key($__animationBank, $name)
 
     // Check if keyframe is already rendered
-    @if not index($__usedKeyframes, $name)
-      $__usedKeyframes: append($__usedKeyframes, $name) !global
+    @if not index($__animateUsedKeyframes, $name)
+      $__animateUsedKeyframes: append($__animateUsedKeyframes, $name) !global
+
+      // Create keyframe entry
       @keyframes #{$name}
         @each $stop, $styles in map-get($__animationBank, $name)
           @if $stop != default
@@ -34,3 +35,6 @@ $__usedKeyframes: () !default
 
   @else
     @error '\'#{$name}\' not found in animation bank.'
+
+div
+  +animate(fadeInUpBig)
