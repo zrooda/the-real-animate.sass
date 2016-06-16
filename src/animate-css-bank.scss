@@ -231,6 +231,53 @@ $__animationBank: (
   fadeInUpBig: (
     0%: (opacity: 0, transform: translate3d(0, 2000px, 0)),
     100%: (opacity: 1, transform: none)
+  ),
+
+  // Fading Exits
+
+  fadeOut: (
+    0%: (opacity: 1),
+    100%: (opacity: 0)
+  ),
+
+  fadeOutDown: (
+    0%: (opacity: 1),
+    100%: (opacity: 0, transform: translate3d(0, 100%, 0))
+  ),
+
+  fadeOutDownBig: (
+    0%: (opacity: 1),
+    100%: (opacity: 0, transform: translate3d(0, 2000px, 0))
+  ),
+
+  fadeOutLeft: (
+    0%: (opacity: 1),
+    100%: (opacity: 0, transform: translate3d(-100%, 0, 0))
+  ),
+
+  fadeOutLeftBig: (
+    0%: (opacity: 1),
+    100%: (opacity: 0, transform: translate3d(-2000px, 0, 0))
+  ),
+
+  fadeOutRight: (
+    0%: (opacity: 1),
+    100%: (opacity: 0, transform: translate3d(100%, 0, 0))
+  ),
+
+  fadeOutRightBig: (
+    0%: (opacity: 1),
+    100%: (opacity: 0, transform: translate3d(2000px, 0, 0))
+  ),
+
+  fadeOutUp: (
+    0%: (opacity: 1),
+    100%: (opacity: 0, transform: translate3d(0, -100%, 0))
+  ),
+
+  fadeOutUpBig: (
+    0%: (opacity: 1),
+    100%: (opacity: 0, transform: translate3d(0, -2000px, 0))
   )
 
 );
