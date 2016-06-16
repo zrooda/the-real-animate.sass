@@ -7,5 +7,5 @@
 
 ```Sass
 div
-  +animate(fadeIn, 500ms, ease-in)
+  +animate(fadeIn, 500ms)
 ```

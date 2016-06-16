@@ -151,6 +151,40 @@ $__animationBank: (
     75%: (animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000), transform: translate3d(0, 10px, 0)),
     90%: (animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000), transform: translate3d(0, -5px, 0)),
     100%: (animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000), transform: translate3d(0, 0, 0))
+  ),
+
+  // Bouncing Exits
+
+  bounceOut: (
+    20%: (transform: scale3d(.9, .9, .9)),
+    50%: (opacity: 1, transform: scale3d(1.1, 1.1, 1.1)),
+    55%: (opacity: 1, transform: scale3d(1.1, 1.1, 1.1)),
+    100%: (opacity: 0, transform: scale3d(.3, .3, .3))
+  ),
+
+  bounceOutDown: (
+    20%: (transform: translate3d(0, 10px, 0)),
+    40%: (opacity: 1, transform: translate3d(0, -20px, 0)),
+    45%: (opacity: 1, transform: translate3d(0, -20px, 0)),
+    100%: (opacity: 0, transform: translate3d(0, 2000px, 0))
+  ),
+
+  bounceOutLeft: (
+    20%: (opacity: 1, transform: translate3d(20px, 0, 0)),
+    100%: (opacity: 0, transform: translate3d(-2000px, 0, 0))
+  ),
+
+  bounceOutRight: (
+    20%: (opacity: 1, transform: translate3d(-20px, 0, 0)),
+    100%: (opacity: 0, transform: translate3d(2000px, 0, 0))
+  ),
+
+  bounceOutUp: (
+    20%: (transform: translate3d(0, -10px, 0)),
+    40%: (opacity: 1, transform: translate3d(0, 20px, 0)),
+    45%: (opacity: 1, transform: translate3d(0, 20px, 0)),
+    100%: (opacity: 0, transform: translate3d(0, -2000px, 0))
   )
+
 
 );
