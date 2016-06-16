@@ -1,4 +1,4 @@
-@import 'animate-css-bank.scss'
+@import 'animate-bank'
 
 // Config
 $__animateCaching: true !default
@@ -10,7 +10,7 @@ $__animateUsedKeyframes: () !default
   $extraProps: false
   $cachedProps: ()
   // Check bank
-  @if map-has-key($__animationBank, $name)
+  @if map-has-key($__animateBank, $name)
 
     // Check if keyframe is already rendered
     @if not index($__animateUsedKeyframes, $name)
@@ -18,7 +18,7 @@ $__animateUsedKeyframes: () !default
 
       // Create keyframe entry
       @keyframes #{$name}
-        @each $stop, $styles in map-get($__animationBank, $name)
+        @each $stop, $styles in map-get($__animateBank, $name)
           @if $stop != default
             #{$stop}
               @each $prop, $value in $styles
