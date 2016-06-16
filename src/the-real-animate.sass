@@ -1,0 +1,30 @@
+@import 'animation-bank.scss'
+
+// Config
+$__defaultDuration: 500ms !default
+$__defaultEasing: linear !default
+$__usedKeyframes: () !default
+
+// Mixin
+=animate($name, $duration: $__defaultDuration, $easing: $__defaultEasing, $delay: 0)
+  // Check bank
+  @if map-has-key($__animationBank, $name)
+    // Check if keyframe is already rendered
+
+    @if not index($__usedKeyframes, $name)
+      @debug $__usedKeyframes
+      $__usedKeyframes: append($__usedKeyframes, $name) !global
+      @keyframes #{$name}
+        @each $stop, $styles in map-get($__animationBank, $name)
+          #{$stop}
+            @each $prop, $value in $styles
+              #{$prop}: if(type-of($value) == string, unquote($value), $value)
+
+    // Set properties on element
+    animation-name: $name
+    animation-duration: $duration
+    animation-timing-function: $easing
+    animation-delay: $delay
+
+  @else
+    @error '\'#{$name}\' not found in animation bank.'
