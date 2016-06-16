@@ -9,10 +9,9 @@ $__usedKeyframes: () !default
 =animate($name, $duration: $__defaultDuration, $easing: $__defaultEasing, $delay: 0)
   // Check bank
   @if map-has-key($__animationBank, $name)
-    // Check if keyframe is already rendered
 
+    // Check if keyframe is already rendered
     @if not index($__usedKeyframes, $name)
-      @debug $__usedKeyframes
       $__usedKeyframes: append($__usedKeyframes, $name) !global
       @keyframes #{$name}
         @each $stop, $styles in map-get($__animationBank, $name)

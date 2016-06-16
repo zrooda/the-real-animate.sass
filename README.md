@@ -3,7 +3,7 @@
 
 - Keyframes are rendered on actual use, no extra imports, no duplicates
 - No useless classes, animations are directly attached to styled element
-- Nested SASS maps as data source
+- Nested SASS maps as data source (JSON-like)
 
 ```Sass
 div
