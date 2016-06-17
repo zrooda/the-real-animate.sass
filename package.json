@@ -1,0 +1,19 @@
+{
+  "name": "the-real-animate.sass",
+  "version": "1.0.0",
+  "description": "The animate.css port to SASS that you're looking for",
+  "main": "src/the-real-animate.sass",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mystrdat/the-real-animate.sass.git"
+  },
+  "author": "mystrdat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mystrdat/the-real-animate.sass/issues"
+  },
+  "homepage": "https://github.com/mystrdat/the-real-animate.sass#readme",
+}
