@@ -7,7 +7,6 @@ $__animateUsedKeyframes: () !default
 
 // Mixin
 =animate($name, $duration: $__animateDuration, $delay: null)
-  $extraProps: false
   $cachedProps: ()
   // Check bank
   @if map-has-key($__animateBank, $name)
@@ -26,8 +25,6 @@ $__animateUsedKeyframes: () !default
                 // Get props to accelerate
                 @if $__animateCaching and not index($cachedProps, $prop)
                   $cachedProps: append($cachedProps, $prop, comma)
-          @else
-            $extraProps: $styles
 
     // Set animation properties on element
     animation-name: $name
@@ -36,8 +33,8 @@ $__animateUsedKeyframes: () !default
     animation-fill-mode: both // animate.css default
 
     // Add extra animation defaults
-    @if $extraProps
-      @each $prop, $value in $extraProps
+    @if map-get(map-get($__animateBank, $name), default)
+      @each $prop, $value in map-get(map-get($__animateBank, $name), default)
         #{$prop}: $value
 
     // Hardware acceleration
@@ -45,3 +42,6 @@ $__animateUsedKeyframes: () !default
 
   @else
     @error '\'#{$name}\' not found in animation bank.'
+
+div
+  +animate(bounce)
