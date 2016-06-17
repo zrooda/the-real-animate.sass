@@ -6,7 +6,7 @@ $__animateDuration: 1000ms !default
 $__animateUsedKeyframes: () !default
 
 // Mixin
-=animate($name, $duration: $__animateDuration, $cache: $__animateCaching)
+=animate($name, $duration: $__animateDuration, $delay: null)
   $extraProps: false
   $cachedProps: ()
   // Check bank
@@ -24,7 +24,7 @@ $__animateUsedKeyframes: () !default
               @each $prop, $value in $styles
                 #{$prop}: $value
                 // Get props to accelerate
-                @if $cache and not index($cachedProps, $prop)
+                @if $__animateCaching and not index($cachedProps, $prop)
                   $cachedProps: append($cachedProps, $prop, comma)
           @else
             $extraProps: $styles
@@ -32,6 +32,7 @@ $__animateUsedKeyframes: () !default
     // Set animation properties on element
     animation-name: $name
     animation-duration: $duration
+    animation-delay: $delay
     animation-fill-mode: both // animate.css default
 
     // Add extra animation defaults

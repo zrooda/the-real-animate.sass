@@ -14,8 +14,8 @@ my-widget
   &.coming-in-hot
     +animate(bounceInLeft) // default 1s
 
-  &.going-bye-bye
-    +animate(fadeOut, 500ms)
+  &.delayed-bye-bye
+    +animate(fadeOut, 3s, 250ms)
 ```
 
 ```Css
@@ -27,9 +27,10 @@ my-widget.coming-in-hot {
 
 @keyframes bounceInLeft { ... }
 
-my-widget.going-bye-bye {
+my-widget.delayed-bye-bye {
   animation-name: fadeOut;
-  animation-duration: 500ms;
+  animation-duration: 3s;
+  animation-delay: 250ms;
   animation-fill-mode: both;
   will-change: opacity; }
 
