@@ -1,7 +1,8 @@
 # the-real-animate.sass
-**TL;DR** The [animate.css](https://github.com/daneden/animate.css) port to SASS that you're looking for.
 
 SASS | [Stylus](https://github.com/mystrdat/the-real-animate.styl)  
+  
+**TL;DR** The [animate.css](https://github.com/daneden/animate.css) port to SASS that you're looking for.
 
 - Keyframes are rendered automatically on first use, no extra imports needed, no duplicates
 - No classes, animations are directly attached to styled element
